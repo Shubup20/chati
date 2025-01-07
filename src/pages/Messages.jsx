@@ -1,4 +1,5 @@
 import ChatList from "../section/chat/ChatList";
+import Inbox from "../section/chat/Inbox";
 import Sidebar from "../section/chat/Sidebar";
 
 const Messages = () => {
@@ -12,6 +13,7 @@ const Messages = () => {
         <ChatList />
 
         {/* Inbox */}
+        <Inbox />
       </div>
     </div>
   );

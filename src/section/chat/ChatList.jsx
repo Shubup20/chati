@@ -75,7 +75,7 @@ const ChatList = () => {
           </button>
         </form>
 
-        <div className="no-scrollbar overflow-auto max-h-full">
+        <div className="no-scrollbar overflow-auto max-h-full space-y-2.5">
           {/* Chat List Item */}
           {List.map((object, item) => {
             return (
@@ -97,7 +97,7 @@ const ChatList = () => {
                     {object.name}
                   </h5>
 
-                  <p className="text-sm">{object.message}</p>
+                  <p className="text-xs">{object.message}</p>
                 </div>
               </div>
             );
