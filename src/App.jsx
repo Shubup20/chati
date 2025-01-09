@@ -1,10 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import Messages from "./pages/Messages";
+import Login from "./pages/auth/Login";
+import Signin from "./pages/auth/Signin";
 
 const App = () => {
   return (
     <Routes>
       <Route index={true} element={<Messages />} />
+      <Route path="/auth/login" element={<Login />} />
+      <Route path="/auth/signup" element={<Signin />} />
     </Routes>
   );
 };
