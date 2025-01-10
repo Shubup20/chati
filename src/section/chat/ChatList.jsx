@@ -8,50 +8,53 @@ import User05 from "../../images/user/user-05.png";
 import User06 from "../../images/user/user-06.png";
 import User07 from "../../images/user/user-07.png";
 import User08 from "../../images/user/user-08.png";
+import { useState } from "react";
+
+const List = [
+  {
+    imgSrc: User01,
+    name: "Henry Dholi",
+    message: "I cam across your profile and...",
+  },
+  {
+    imgSrc: User02,
+    name: "Mariya Desoja",
+    message: "I like your confidence 💪",
+  },
+  {
+    imgSrc: User03,
+    name: "Robert Jhon",
+    message: "Can you share your offer?",
+  },
+  {
+    imgSrc: User04,
+    name: "Cody Fisher",
+    message: `I'm waiting for you response!`,
+  },
+  {
+    imgSrc: User05,
+    name: "Jenny Wilson",
+    message: "I cam across your profile and...",
+  },
+  {
+    imgSrc: User06,
+    name: "Robert Jhon",
+    message: "Can you share your offer?",
+  },
+  {
+    imgSrc: User07,
+    name: "Cody Fisher",
+    message: `I'm waiting for you response!`,
+  },
+  {
+    imgSrc: User08,
+    name: "Jenny Wilson",
+    message: "I cam across your profile and...",
+  },
+];
 
 const ChatList = () => {
-  const List = [
-    {
-      imgSrc: User01,
-      name: "Henry Dholi",
-      message: "I cam across your profile and...",
-    },
-    {
-      imgSrc: User02,
-      name: "Mariya Desoja",
-      message: "I like your confidence 💪",
-    },
-    {
-      imgSrc: User03,
-      name: "Robert Jhon",
-      message: "Can you share your offer?",
-    },
-    {
-      imgSrc: User04,
-      name: "Cody Fisher",
-      message: `I'm waiting for you response!`,
-    },
-    {
-      imgSrc: User05,
-      name: "Jenny Wilson",
-      message: "I cam across your profile and...",
-    },
-    {
-      imgSrc: User06,
-      name: "Robert Jhon",
-      message: "Can you share your offer?",
-    },
-    {
-      imgSrc: User07,
-      name: "Cody Fisher",
-      message: `I'm waiting for you response!`,
-    },
-    {
-      imgSrc: User08,
-      name: "Jenny Wilson",
-      message: "I cam across your profile and...",
-    },
-  ];
+  const [selected, setSelected] = useState(0);
   return (
     <div className="hidden h-full flex-col xl:flex xl:w-1/4">
       <div className="sticky border-b border-stroke dark:border-strokedark px-6 py-7.5 flex flex-row">
@@ -80,8 +83,15 @@ const ChatList = () => {
           {List.map((object, item) => {
             return (
               <div
-                className="flex cursor-pointer items-center rounded px-4 py-2 hover:bg-gray-2 dark:hover:bg-strokedark"
+                className={`flex cursor-pointer items-center rounded px-4 py-2 hover:bg-gray-2 dark:hover:bg-strokedark ${
+                  selected === item
+                    ? "bg-gray dark:bg-boxdark-2 "
+                    : "hover:bg-gray-2 dark:hover:bg-boxdark-2"
+                }`}
                 key={item}
+                onClick={() => {
+                  setSelected(item);
+                }}
               >
                 <div className="relative mr-3.5 h-11 w-full max-w-11 rounded-full">
                   <img
