@@ -1,6 +1,7 @@
-import { Link, PaperPlaneTilt, Smiley } from "@phosphor-icons/react";
+import { Link, PaperPlaneTilt } from "@phosphor-icons/react";
 import user01 from "../../images/user/user-01.png";
 import Dropdown from "../../components/Dropdown";
+import EmojiPicker from "../../components/EmojiPicker";
 const Inbox = () => {
   return (
     <div className="flex  h-full flex-col border-l border-stroke dark:border-strokedark xl:w-3/4">
@@ -160,7 +161,7 @@ const Inbox = () => {
                 <Link size={20} weight="bold" />
               </button>
               <button className="hover:text-primary ">
-                <Smiley size={20} weight="bold" />
+                <EmojiPicker />
               </button>
             </div>
           </div>

@@ -8,7 +8,7 @@ const Sidebar = () => {
         <Chat size={24} />
       </div>
 
-      <div className="flex flex-col grow">fun</div>
+      <div className="flex flex-col grow"></div>
 
       <div className="space-y-4.5">
         <DarkModeSwitcher />
