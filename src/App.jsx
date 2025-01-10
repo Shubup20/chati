@@ -3,8 +3,21 @@ import Messages from "./pages/Messages";
 import Login from "./pages/auth/Login";
 import Signin from "./pages/auth/Signin";
 import Verification from "./pages/auth/Verification";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {
+    const colorMode = JSON.parse(window.localStorage.getItem("color-theme"));
+
+    const className = "dark";
+
+    const bodyClass = window.document.body.classList;
+
+    colorMode === "dark"
+      ? bodyClass.add(className)
+      : bodyClass.remove(className);
+  }, []);
+
   return (
     <Routes>
       <Route index={true} element={<Messages />} />

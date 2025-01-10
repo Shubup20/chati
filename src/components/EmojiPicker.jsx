@@ -2,8 +2,12 @@ import { Smiley } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
+
+
 const EmojiPicker = () => {
   const [pickerOpen, setPickerOpen] = useState(false);
+
+  const colorMode = JSON.parse(window.localStorage.getItem("color-theme"));
 
   const pickerRef = useRef(null);
   const buttonRef = useRef(null);
@@ -34,16 +38,16 @@ const EmojiPicker = () => {
   };
   return (
     <div className="relative flex">
-      <button
+      <div
         ref={buttonRef}
         className="text-[#98A6AD] hover:text-body"
         onClick={handlerTrigger}
       >
-        <Smiley size={20} className="text-body" weight="bold"  />
-      </button>
+        <Smiley size={20} className="text-body" weight="bold" />
+      </div>
       {pickerOpen && (
         <div ref={pickerRef} className="absolute z-40 -top-115 right-0">
-          <Picker data={data} onEmojiSelect={console.log} />
+          <Picker theme={colorMode} data={data} onEmojiSelect={console.log} />
         </div>
       )}
     </div>
