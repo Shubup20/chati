@@ -9,6 +9,7 @@ import Dropdown from "../../components/Dropdown";
 import EmojiPicker from "../../components/EmojiPicker";
 import { useState } from "react";
 import UserInfo from "./UserInfo";
+import Giphy from "../../components/Giphy";
 
 const Inbox = () => {
   const [userInfoOpen, setUserInfoOpen] = useState(false);
@@ -186,7 +187,7 @@ const Inbox = () => {
 
         {/* Input field */}
         <div className="sticky bottom-0 border-t border-stroke bg-white px-6 py-5 dark:border-strokedark dark:bg-boxdark">
-          <form className="flex items-center justify-between space-x-4.5">
+          <form className="flex items-center justify-between space-x-4.5 ">
             <div className="relative w-full">
               <input
                 type="text"
@@ -208,7 +209,10 @@ const Inbox = () => {
               <PaperPlaneTilt size={24} />
             </button>
           </form>
+
+          <Giphy/>
         </div>
+
       </div>
 
       {/* profile toggle section */}
