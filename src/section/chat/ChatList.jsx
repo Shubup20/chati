@@ -57,7 +57,7 @@ const ChatList = () => {
   const [selected, setSelected] = useState(0);
   return (
     <div className="hidden h-full flex-col xl:flex xl:w-1/4">
-      <div className="sticky border-b border-stroke dark:border-strokedark px-6 py-7.5 flex flex-row">
+      <div className="sticky border-b border-stroke dark:border-strokedark px-6 py-5 flex flex-row">
         <h1 className="text-lg font-medium text-black dark:text-white 2xl:text-xl">
           Active Conversations
         </h1>

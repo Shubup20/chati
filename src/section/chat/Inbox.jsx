@@ -25,9 +25,9 @@ const Inbox = () => {
         } `}
       >
         {/* Chat header */}
-        <div className="sticky flex items-center flex-row justify-between border-b border-stroke dark:border-strokedark px-6 py-4.5">
+        <div className="sticky flex items-center flex-row justify-between border-b border-stroke dark:border-strokedark px-6 py-3">
           <div className="flex items-center" onClick={handleToggleUserInfo}>
-            <div className="mr-4.5 h-13 w-full max-w-13 overflow-hidden rounded-full">
+            <div className="mr-4.5 h-11 w-full max-w-11 overflow-hidden rounded-full">
               <img
                 src={user01}
                 alt="profile"

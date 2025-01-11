@@ -3,7 +3,7 @@ import { Grid } from "@giphy/react-components";
 import { GiphyFetch } from "@giphy/js-fetch-api";
 import _ from "lodash";
 
-const gf = new GiphyFetch("oX32FQo0RlDzQX8TJ2witpakr1hqvsqB");
+const gf = new GiphyFetch("LZdP7jknogaCD9ViN5TKzzDj4jfNDqzz");
 
 const Giphy = () => {
   const gridRef = useRef(null);
@@ -16,6 +16,20 @@ const Giphy = () => {
     return gf.search(value, { offset, limit: 10 });
   };
 
+  const debouncedfetchgifs = _.debounce(async () => {
+    setIsLoading(true);
+    setError(null); //clear any previous error
+
+    try {
+      const newGifs = await fetchGifs(0);
+      setGifs(newGifs.data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }, 500); // Debounce time (500ms)
+
   useEffect(() => {
     // fetch initially on search term
     const fetchInitialGifs = async () => {
@@ -26,13 +40,20 @@ const Giphy = () => {
         const initialGifs = await fetchGifs(0);
         setGifs(initialGifs.data);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }
     };
     fetchInitialGifs();
   }, []);
+
+  const handleGifClick = (gifs, e) => {
+    e.preventDefault();
+    // console.log(gifs);
+    const gifUrl = gifs.images.original.url;
+    console.log(gifUrl);
+  };
 
   return (
     <div ref={gridRef} className="w-full mt-3">
@@ -43,20 +64,21 @@ const Giphy = () => {
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
+          debouncedfetchgifs(); //calling debounced function on every change
         }}
       />
 
       {isLoading && <p>Loading GIFs...</p>}
       {error && <p className="text-red">Error:{error}</p>}
 
-      <div className="h-48 overflow-auto no-scrollbar">
+      <div className="h-30 overflow-auto no-scrollbar">
         <Grid
           width={gridRef.current?.offsetWidth}
           columns={8}
           gutter={6}
           fetchGifs={fetchGifs}
           key={value}
-          onGifClick={() => {}}
+          onGifClick={handleGifClick}
           data={gifs}
         />
       </div>

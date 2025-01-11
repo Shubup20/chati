@@ -11,7 +11,7 @@ const UserInfo = ({ handleToggleUserInfo }) => {
   return (
     //full div profile header
     <div className="border-l flex flex-col h-full border-stroke dark:border-strokedark">
-      <div className="sticky border-b border-stroke dark:border-strokedark flex flex-row items-center justify-between w-full px-6 py-7.5">
+      <div className="sticky border-b border-stroke dark:border-strokedark flex flex-row items-center justify-between w-full px-6 py-5">
         <div className="text-black dark:text-white text-lg font-semibold">
           Profile
         </div>
