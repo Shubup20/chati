@@ -1,3 +1,5 @@
+import GifModal from "../components/GifModal";
+
 import ChatList from "../section/chat/ChatList";
 import Inbox from "../section/chat/Inbox";
 import Sidebar from "../section/chat/Sidebar";
@@ -15,6 +17,9 @@ const Messages = () => {
         {/* Inbox */}
         <Inbox />
       </div>
+
+      <GifModal />
+      
     </div>
   );
 };

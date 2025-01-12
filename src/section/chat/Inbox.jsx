@@ -1,6 +1,7 @@
 import {
   Gif,
   Link,
+  Microphone,
   PaperPlaneTilt,
   Phone,
   VideoCamera,
@@ -11,8 +12,12 @@ import EmojiPicker from "../../components/EmojiPicker";
 import { useState } from "react";
 import UserInfo from "./UserInfo";
 import Giphy from "../../components/Giphy";
+import { useDispatch } from "react-redux";
+import { ToggleAudioModal } from "../../redux/slices/app";
 
 const Inbox = () => {
+  const dispatch = useDispatch();
+
   const [userInfoOpen, setUserInfoOpen] = useState(false);
 
   const [gifOpen, setGifOpen] = useState(false);
@@ -24,6 +29,11 @@ const Inbox = () => {
 
   const handleToggleUserInfo = () => {
     setUserInfoOpen((prev) => !prev);
+  };
+
+  const handleMicClick = (e) => {
+    e.preventDefault();
+    dispatch(ToggleAudioModal(true));
   };
 
   return (
@@ -208,6 +218,13 @@ const Inbox = () => {
               />
 
               <div className="absolute right-5 top-1/2 -translate-y-1/2 items-center  justify-end space-x-4">
+                <button
+                  className="hover:text-primary "
+                  onClick={handleMicClick}
+                >
+                  <Microphone size={20} weight="bold" />
+                </button>
+
                 <button className="hover:text-primary ">
                   <Link size={20} weight="bold" />
                 </button>

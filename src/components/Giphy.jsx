@@ -3,10 +3,13 @@ import { Grid } from "@giphy/react-components";
 import { GiphyFetch } from "@giphy/js-fetch-api";
 import _ from "lodash";
 import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
+import { useDispatch } from "react-redux";
+import { ToggleGiftModel } from "../redux/slices/app";
 
 const gf = new GiphyFetch("oX32FQo0RlDzQX8TJ2witpakr1hqvsqB");
 
 const Giphy = () => {
+  const dispatch = useDispatch();
   const gridRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState("");
@@ -54,6 +57,12 @@ const Giphy = () => {
     // console.log(gifs);
     const gifUrl = gifs.images.original.url;
     console.log(gifUrl);
+    dispatch(
+      ToggleGiftModel({
+        value: true,
+        url: gifUrl,
+      })
+    );
   };
 
   return (

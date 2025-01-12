@@ -29,7 +29,7 @@ const Dropdown = () => {
 
   useEffect(() => {
     const keyHandler = ({ keyCode }) => {
-      if (!dropdown || keyCode !== 27) return;
+      if (!dropdownOpen || keyCode !== 27) return;
 
       setDropdownOpen(false);
     };
