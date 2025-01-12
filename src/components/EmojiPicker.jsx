@@ -39,11 +39,12 @@ const EmojiPicker = () => {
   return (
     <div className="relative flex">
       <div
+
         ref={buttonRef}
-        className="text-[#98A6AD] hover:text-body"
+        className="text-[#98A6AD] hover:text-primary"
         onClick={handlerTrigger}
       >
-        <Smiley size={20} className="text-body" weight="bold" />
+        <Smiley size={20} className="text-body hover:text-primary" weight="bold" />
       </div>
       {pickerOpen && (
         <div ref={pickerRef} className="absolute z-40 -top-115 right-0">

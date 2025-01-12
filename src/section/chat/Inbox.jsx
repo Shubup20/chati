@@ -1,4 +1,5 @@
 import {
+  Gif,
   Link,
   PaperPlaneTilt,
   Phone,
@@ -14,9 +15,17 @@ import Giphy from "../../components/Giphy";
 const Inbox = () => {
   const [userInfoOpen, setUserInfoOpen] = useState(false);
 
+  const [gifOpen, setGifOpen] = useState(false);
+
+  const handleToggleGif = (e) => {
+    e.preventDefault();
+    setGifOpen((prev) => !prev);
+  };
+
   const handleToggleUserInfo = () => {
     setUserInfoOpen((prev) => !prev);
   };
+
   return (
     <>
       <div
@@ -26,7 +35,10 @@ const Inbox = () => {
       >
         {/* Chat header */}
         <div className="sticky flex items-center flex-row justify-between border-b border-stroke dark:border-strokedark px-6 py-3">
-          <div className="flex items-center" onClick={handleToggleUserInfo}>
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={handleToggleUserInfo}
+          >
             <div className="mr-4.5 h-11 w-full max-w-11 overflow-hidden rounded-full">
               <img
                 src={user01}
@@ -199,7 +211,15 @@ const Inbox = () => {
                 <button className="hover:text-primary ">
                   <Link size={20} weight="bold" />
                 </button>
-                <button className="hover:text-primary ">
+
+                <button
+                  className="hover:text-primary "
+                  onClick={handleToggleGif}
+                >
+                  <Gif size={20} weight="bold" />
+                </button>
+
+                <button>
                   <EmojiPicker />
                 </button>
               </div>
@@ -210,9 +230,8 @@ const Inbox = () => {
             </button>
           </form>
 
-          <Giphy/>
+          {gifOpen && <Giphy />}
         </div>
-
       </div>
 
       {/* profile toggle section */}

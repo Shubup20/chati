@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Grid } from "@giphy/react-components";
 import { GiphyFetch } from "@giphy/js-fetch-api";
 import _ from "lodash";
+import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 
-const gf = new GiphyFetch("LZdP7jknogaCD9ViN5TKzzDj4jfNDqzz");
+const gf = new GiphyFetch("oX32FQo0RlDzQX8TJ2witpakr1hqvsqB");
 
 const Giphy = () => {
   const gridRef = useRef(null);
@@ -46,7 +47,7 @@ const Giphy = () => {
       }
     };
     fetchInitialGifs();
-  }, []);
+  });
 
   const handleGifClick = (gifs, e) => {
     e.preventDefault();
@@ -60,7 +61,7 @@ const Giphy = () => {
       <input
         type="text"
         placeholder="Search for Gif..."
-        className="border border-stroke rounded-md p-2 w-full mb-2 outline-none "
+        className="border border-stroke dark:border-strokedark  rounded-md p-2 w-full mb-2 outline-none bg-transparent"
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
@@ -72,15 +73,24 @@ const Giphy = () => {
       {error && <p className="text-red">Error:{error}</p>}
 
       <div className="h-30 overflow-auto no-scrollbar">
-        <Grid
-          width={gridRef.current?.offsetWidth}
-          columns={8}
-          gutter={6}
-          fetchGifs={fetchGifs}
-          key={value}
-          onGifClick={handleGifClick}
-          data={gifs}
-        />
+        {gifs.length > 0 ? (
+          <Grid
+            width={gridRef.current?.offsetWidth}
+            columns={8}
+            gutter={6}
+            fetchGifs={fetchGifs}
+            key={value}
+            onGifClick={handleGifClick}
+            data={gifs}
+          />
+        ) : (
+          <div className="flex flex-col items-center justify-center h-full space-y-1">
+            <MagnifyingGlass size={25} weight="bold" />
+            <span className="text-lg text-body dark-text-white font-semibold">
+              Please search for any GIF....
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
