@@ -1,7 +1,7 @@
-import { ChatTeardropSlash, DotsThree, Trash } from "@phosphor-icons/react";
+import { File, Image, Paperclip } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 
-const Dropdown = () => {
+const Attachment = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef(null);
@@ -42,32 +42,39 @@ const Dropdown = () => {
   return (
     <div className="relative flex">
       <button
-        className="text-[#98A6AD] hover:text-body"
+        className="text-[#98A6AD] hover:text-primary"
         ref={trigger}
-        onClick={() => setDropdownOpen((prev) => !prev)}
+        onClick={(e) => {
+          e.preventDefault();
+          setDropdownOpen((prev) => !prev);
+        }}
       >
-        <DotsThree weight="bold" size={24} />
+        <Paperclip
+          size={20}
+          className="text-body hover:text-primary"
+          weight="bold"
+        />
       </button>
 
       <div
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
         onBlur={() => setDropdownOpen(false)}
-        className={`absolute right-0 top-full z-40 w-40 space-y-1 round-sm border border-stroke bg-white p-1.5 shadow-default dark:border-strokedark dark:bg-boxdark ${
+        className={`absolute right-0 -top-22 z-40 w-54 space-y-1 round-sm border border-stroke bg-white p-1.5 shadow-default dark:border-strokedark dark:bg-boxdark ${
           dropdownOpen === true ? "block" : "hidden"
         }`}
       >
         <button className="flex w-full items-center gap-2 rounded-sm  px-4 py-1.5 text-left text-sm hover:bg-gray dark:hover:bg-meta-4">
-          <ChatTeardropSlash size={20} />
-          Block
+          <Image size={20} />
+          Images & Videos
         </button>
         <button className="flex w-full items-center gap-2 rounded-sm  px-4 py-1.5 text-left text-sm hover:bg-gray dark:hover:bg-meta-4">
-          <Trash size={20} />
-          Delete
+          <File size={20} />
+          Files & Documents
         </button>
       </div>
     </div>
   );
 };
 
-export default Dropdown;
+export default Attachment;

@@ -1,6 +1,5 @@
 import {
   Gif,
-  Link,
   Microphone,
   PaperPlaneTilt,
   Phone,
@@ -14,6 +13,7 @@ import UserInfo from "./UserInfo";
 import Giphy from "../../components/Giphy";
 import { useDispatch } from "react-redux";
 import { ToggleAudioModal } from "../../redux/slices/app";
+import Attachment from "../../components/Attachment";
 
 const Inbox = () => {
   const dispatch = useDispatch();
@@ -227,8 +227,12 @@ const Inbox = () => {
                   <Microphone size={20} weight="bold" />
                 </button>
 
-                <button className="hover:text-primary ">
-                  <Link size={20} weight="bold" />
+                <button
+                  // onClick={(e) => {
+                  //   e.preventDefault();
+                  // }}
+                >
+                  <Attachment />
                 </button>
 
                 <button
