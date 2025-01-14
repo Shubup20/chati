@@ -2,6 +2,7 @@ import { PaperPlaneTilt, X } from "@phosphor-icons/react";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToggleMediaModal } from "../redux/slices/app";
+import FileDropZone from "./FileDropZone";
 
 const MediaPicker = () => {
   const modalRef = useRef(null);
@@ -44,6 +45,8 @@ const MediaPicker = () => {
         </div>
 
         {/* FileDropzone */}
+        <FileDropZone />
+
         <div className="flex flex-row items-center space-x-2 justify-center mt-4">
           <input
             type="text"
