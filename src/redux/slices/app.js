@@ -24,7 +24,7 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const ToggleGiftModel = (value) => async (dispatch, getState) => {
+export const ToggleGiftModal = (value) => async (dispatch, getState) => {
   dispatch(slice.actions.updateGifModal(value));
 };
 

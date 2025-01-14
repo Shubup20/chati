@@ -31,8 +31,10 @@ const Inbox = () => {
     setUserInfoOpen((prev) => !prev);
   };
 
+  // audio toogle
   const handleMicClick = (e) => {
     e.preventDefault();
+
     dispatch(ToggleAudioModal(true));
   };
 

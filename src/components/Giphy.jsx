@@ -4,7 +4,7 @@ import { GiphyFetch } from "@giphy/js-fetch-api";
 import _ from "lodash";
 import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 import { useDispatch } from "react-redux";
-import { ToggleGiftModel } from "../redux/slices/app";
+import { ToggleGiftModal } from "../redux/slices/app";
 
 const gf = new GiphyFetch("oX32FQo0RlDzQX8TJ2witpakr1hqvsqB");
 
@@ -58,7 +58,7 @@ const Giphy = () => {
     const gifUrl = gifs.images.original.url;
     console.log(gifUrl);
     dispatch(
-      ToggleGiftModel({
+      ToggleGiftModal({
         value: true,
         url: gifUrl,
       })

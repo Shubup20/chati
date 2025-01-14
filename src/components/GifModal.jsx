@@ -1,6 +1,6 @@
 import { PaperPlaneTilt, X } from "@phosphor-icons/react";
 import { useDispatch, useSelector } from "react-redux";
-import { ToggleGiftModel } from "../redux/slices/app";
+import { ToggleGiftModal } from "../redux/slices/app";
 import { useEffect, useRef } from "react";
 
 const GifModal = () => {
@@ -13,7 +13,7 @@ const GifModal = () => {
     const keyHandler = ({ keyCode }) => {
       if (!gif || keyCode !== 27) return;
       dispatch(
-        ToggleGiftModel({
+        ToggleGiftModal({
           value: false,
           url: null,
         })
@@ -42,7 +42,7 @@ const GifModal = () => {
           <button
             onClick={() => {
               dispatch(
-                ToggleGiftModel({
+                ToggleGiftModal({
                   value: false,
                   url: "",
                 })

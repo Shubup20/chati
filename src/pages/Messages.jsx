@@ -1,4 +1,5 @@
 import GifModal from "../components/GifModal";
+import VoiceRecorder from "../components/VoiceRecorder";
 
 import ChatList from "../section/chat/ChatList";
 import Inbox from "../section/chat/Inbox";
@@ -19,7 +20,7 @@ const Messages = () => {
       </div>
 
       <GifModal />
-      
+      <VoiceRecorder />
     </div>
   );
 };
