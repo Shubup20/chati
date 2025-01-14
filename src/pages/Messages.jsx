@@ -1,4 +1,6 @@
+import DocumentPicker from "../components/DocumentPicker";
 import GifModal from "../components/GifModal";
+import MediaPicker from "../components/MediaPicker";
 import VoiceRecorder from "../components/VoiceRecorder";
 
 import ChatList from "../section/chat/ChatList";
@@ -21,6 +23,8 @@ const Messages = () => {
 
       <GifModal />
       <VoiceRecorder />
+      <MediaPicker />
+      <DocumentPicker />
     </div>
   );
 };
