@@ -14,6 +14,9 @@ import Giphy from "../../components/Giphy";
 import { useDispatch } from "react-redux";
 import { ToggleAudioModal } from "../../redux/slices/app";
 import Attachment from "../../components/Attachment";
+import MsgSeparator from "../../components/MsgSeparator";
+import TypingIndicator from "../../components/TypingIndicator";
+import TextMessage from "../../components/Messages/Text";
 
 const Inbox = () => {
   const dispatch = useDispatch();
@@ -81,9 +84,26 @@ const Inbox = () => {
         {/* list of messages */}
 
         <div className="max-h-full spac-y-3.5 overflow-auto no-scrollbar px-6 py-7.5 grow">
+          <TextMessage
+            author="Shubham"
+            content="Hi,How are u ?"
+            read_receipt="send"
+            incoming={true}
+            timestamp="2.44pm"
+          />
+          <div className="max-w-125 ml-auto">
+            <div className="mb-2.5 rounded-2xl rounded-br-none bg-primary px-5 py-3">
+              <p className="text-white">
+                Hello, I will check the schedule and inform
+              </p>
+            </div>
+            <p className="text-xs">2.00pm</p>
+          </div>
+
+          <MsgSeparator />
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
-            <div className="mb-2.5 rounded-2xl rounded-til-none bg-gray px-5 py-3 dark:bg-boxdark-2">
+            <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2">
               <p>
                 I want to make an appointment tomorrow from 2.00 pm to 5.00?
               </p>
@@ -99,9 +119,10 @@ const Inbox = () => {
             </div>
             <p className="text-xs">2.00pm</p>
           </div>
+
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
-            <div className="mb-2.5 rounded-2xl rounded-til-none bg-gray px-5 py-3 dark:bg-boxdark-2">
+            <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2">
               <p>
                 I want to make an appointment tomorrow from 2.00 pm to 5.00?
               </p>
@@ -117,9 +138,10 @@ const Inbox = () => {
             </div>
             <p className="text-xs">2.00pm</p>
           </div>
+
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
-            <div className="mb-2.5 rounded-2xl rounded-til-none bg-gray px-5 py-3 dark:bg-boxdark-2">
+            <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2">
               <p>
                 I want to make an appointment tomorrow from 2.00 pm to 5.00?
               </p>
@@ -135,9 +157,10 @@ const Inbox = () => {
             </div>
             <p className="text-xs">2.00pm</p>
           </div>
+
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
-            <div className="mb-2.5 rounded-2xl rounded-til-none bg-gray px-5 py-3 dark:bg-boxdark-2">
+            <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2">
               <p>
                 I want to make an appointment tomorrow from 2.00 pm to 5.00?
               </p>
@@ -153,9 +176,10 @@ const Inbox = () => {
             </div>
             <p className="text-xs">2.00pm</p>
           </div>
+
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
-            <div className="mb-2.5 rounded-2xl rounded-til-none bg-gray px-5 py-3 dark:bg-boxdark-2">
+            <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2">
               <p>
                 I want to make an appointment tomorrow from 2.00 pm to 5.00?
               </p>
@@ -171,9 +195,10 @@ const Inbox = () => {
             </div>
             <p className="text-xs">2.00pm</p>
           </div>
+
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
-            <div className="mb-2.5 rounded-2xl rounded-til-none bg-gray px-5 py-3 dark:bg-boxdark-2">
+            <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2">
               <p>
                 I want to make an appointment tomorrow from 2.00 pm to 5.00?
               </p>
@@ -189,24 +214,7 @@ const Inbox = () => {
             </div>
             <p className="text-xs">2.00pm</p>
           </div>
-          <div className="max-w-125">
-            <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
-            <div className="mb-2.5 rounded-2xl rounded-til-none bg-gray px-5 py-3 dark:bg-boxdark-2">
-              <p>
-                I want to make an appointment tomorrow from 2.00 pm to 5.00?
-              </p>
-            </div>
-            <p className="text-xs">1.55pm</p>
-          </div>
-
-          <div className="max-w-125 ml-auto">
-            <div className="mb-2.5 rounded-2xl rounded-br-none bg-primary px-5 py-3">
-              <p className="text-white">
-                Hello, I will check the schedule and inform
-              </p>
-            </div>
-            <p className="text-xs">2.00pm</p>
-          </div>
+          <TypingIndicator />
         </div>
 
         {/* Input field */}
@@ -228,9 +236,9 @@ const Inbox = () => {
                 </button>
 
                 <button
-                  // onClick={(e) => {
-                  //   e.preventDefault();
-                  // }}
+                // onClick={(e) => {
+                //   e.preventDefault();
+                // }}
                 >
                   <Attachment />
                 </button>
