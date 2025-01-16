@@ -86,7 +86,7 @@ const Inbox = () => {
         <div className="max-h-full spac-y-3.5 overflow-auto no-scrollbar px-6 py-7.5 grow">
           <TextMessage
             author="Shubham"
-            content="Hi,How are u ?"
+            content="Hi,How are u ? https://www.npmjs.com/"
             read_receipt="send"
             incoming={true}
             timestamp="2.44pm"
@@ -94,7 +94,7 @@ const Inbox = () => {
           <div className="max-w-125 ml-auto">
             <div className="mb-2.5 rounded-2xl rounded-br-none bg-primary px-5 py-3">
               <p className="text-white">
-                Hello, I will check the schedule and inform
+                Hello, I will check the schedule and inform 
               </p>
             </div>
             <p className="text-xs">2.00pm</p>
