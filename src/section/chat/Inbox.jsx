@@ -18,6 +18,7 @@ import MsgSeparator from "../../components/MsgSeparator";
 import TypingIndicator from "../../components/TypingIndicator";
 import TextMessage from "../../components/Messages/Text";
 import Document from "../../components/Messages/Document";
+import Voice from "../../components/Messages/Voice";
 
 const Inbox = () => {
   const dispatch = useDispatch();
@@ -103,13 +104,17 @@ const Inbox = () => {
 
           <MsgSeparator />
 
-          {/* Document msg send */}
+          {/* Document msg send and recive */}
           <Document
             author="Janu"
             read_receipt="read"
             incoming={false}
             timestamp="2.44pm"
           />
+
+          {/* Voice msg send and recive */}
+          <Voice read_receipt="delivered" incoming={false} timestamp="4.44pm" />
+
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
             <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2">
