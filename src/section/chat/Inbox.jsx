@@ -17,6 +17,7 @@ import Attachment from "../../components/Attachment";
 import MsgSeparator from "../../components/MsgSeparator";
 import TypingIndicator from "../../components/TypingIndicator";
 import TextMessage from "../../components/Messages/Text";
+import Document from "../../components/Messages/Document";
 
 const Inbox = () => {
   const dispatch = useDispatch();
@@ -87,20 +88,28 @@ const Inbox = () => {
           <TextMessage
             author="Shubham"
             content="Hi,How are u ? https://www.npmjs.com/"
-            read_receipt="send"
-            incoming={true}
+            read_receipt="sent"
+            incoming={false}
             timestamp="2.44pm"
           />
           <div className="max-w-125 ml-auto">
             <div className="mb-2.5 rounded-2xl rounded-br-none bg-primary px-5 py-3">
               <p className="text-white">
-                Hello, I will check the schedule and inform 
+                Hello, I will check the schedule and inform
               </p>
             </div>
             <p className="text-xs">2.00pm</p>
           </div>
 
           <MsgSeparator />
+
+          {/* Document msg send */}
+          <Document
+            author="Janu"
+            read_receipt="read"
+            incoming={false}
+            timestamp="2.44pm"
+          />
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
             <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2">

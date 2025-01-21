@@ -4,7 +4,7 @@ const TypingIndicator = () => {
       <div className="text-md text-body dark:text-white">Typing</div>
 
       <div className="ticontainer">
-        <div className="flex items-center h-[14px">
+        <div className="flex items-center h-[14px]">
           <div className="tidot"></div>
           <div className="tidot"></div>
           <div className="tidot"></div>
