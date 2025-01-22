@@ -19,6 +19,7 @@ import TypingIndicator from "../../components/TypingIndicator";
 import TextMessage from "../../components/Messages/Text";
 import Document from "../../components/Messages/Document";
 import Voice from "../../components/Messages/Voice";
+import Media from "../../components/Messages/Media";
 
 const Inbox = () => {
   const dispatch = useDispatch();
@@ -114,6 +115,15 @@ const Inbox = () => {
 
           {/* Voice msg send and recive */}
           <Voice read_receipt="delivered" incoming={false} timestamp="4.44pm" />
+
+          <Media
+            assets={[]}
+            author="shubham"
+            caption="This is a beautiful car"
+            incoming={true}
+            timestamp={"5:32pm"}
+            read_receipt="read"
+          />
 
           <div className="max-w-125">
             <p className="mb-2.5 text-sm font-medium">Andri Thomas</p>
