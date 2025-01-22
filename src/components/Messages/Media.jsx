@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Check, Checks } from "@phosphor-icons/react";
+import MediaMsgGrid from "../MediaMsgGrid";
 
 const Media = ({
   incoming,
@@ -14,6 +15,7 @@ const Media = ({
       <p className="mb-2.5 text-sm font-medium">{author}</p>
       <div className="mb-2.5 rounded-2xl rounded-tl-none bg-gray px-5 py-3 dark:bg-boxdark-2 space-y-2">
         {/* Media Msg Grid */}
+        <MediaMsgGrid incoming={incoming} />
         <p className="">{caption}</p>
       </div>
       <p className="text-xs">{timestamp}</p>
@@ -22,6 +24,7 @@ const Media = ({
     <div className="max-w-125 ml-auto">
       <div className="mb-2.5 rounded-2xl rounded-br-none bg-primary px-5 py-3 space-y-2">
         {/* Media Msg Grid */}
+        <MediaMsgGrid incoming={incoming} />
         <p className="text-white">{caption}</p>
       </div>
 
