@@ -20,11 +20,23 @@ import TextMessage from "../../components/Messages/Text";
 import Document from "../../components/Messages/Document";
 import Voice from "../../components/Messages/Voice";
 import Media from "../../components/Messages/Media";
+import VideoRoom from "../../components/VideoRoom";
+import AudioRoom from "../../components/AudioRoom";
 
 const Inbox = () => {
   const dispatch = useDispatch();
 
   const [userInfoOpen, setUserInfoOpen] = useState(false);
+
+  const [videoCall, setVideoCall] = useState(false);
+  const [audioCall, setAudioCall] = useState(false);
+
+  const handleToggleVideo = () => {
+    setVideoCall((prev) => !prev);
+  };
+  const handleToggleAudio = () => {
+    setAudioCall((prev) => !prev);
+  };
 
   const [gifOpen, setGifOpen] = useState(false);
 
@@ -74,10 +86,16 @@ const Inbox = () => {
           </div>
 
           <div className="flex flex-row items-center space-x-5">
-            <button className="text-[#98A6AD] hover:text-body">
+            <button
+              className="text-[#98A6AD] hover:text-body"
+              onClick={handleToggleVideo}
+            >
               <VideoCamera size={22} />
             </button>
-            <button className="text-[#98A6AD] hover:text-body">
+            <button
+              className="text-[#98A6AD] hover:text-body"
+              onClick={handleToggleAudio}
+            >
               <Phone size={22} />
             </button>
             <Dropdown />
@@ -288,6 +306,14 @@ const Inbox = () => {
           {gifOpen && <Giphy />}
         </div>
       </div>
+
+      {videoCall && (
+        <VideoRoom open={videoCall} handleClose={handleToggleVideo} />
+      )}
+
+      {audioCall && (
+        <AudioRoom open={audioCall} handleClose={handleToggleAudio} />
+      )}
 
       {/* profile toggle section */}
       {userInfoOpen && (
