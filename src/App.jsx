@@ -1,11 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Messages from "./pages/Messages";
+
 import Login from "./pages/auth/Login";
 import Signin from "./pages/auth/Signin";
 import Verification from "./pages/auth/Verification";
 import { useEffect } from "react";
-import Layout from "./layout/Index";
+
 import ProfilePage from "./pages/ProfilePage";
+import Layout from "./layout/Index"; // Instead of Sidebar
+import Messages from "./pages/Messages";
 
 const App = () => {
   useEffect(() => {
@@ -25,14 +27,13 @@ const App = () => {
       {/* {Redirect / to /auth/login} */}
 
       <Route path="/" element={<Navigate to="/auth/login" />} />
-      {/* <Route index={true} element={<Messages />} /> */}
       <Route path="/auth/login" element={<Login />} />
       <Route path="/auth/signup" element={<Signin />} />
       <Route path="/auth/verify" element={<Verification />} />
 
+      {/* Dashboard Layout */}
       <Route path="/dashboard" element={<Layout />}>
-        <Route index element={Messages} />
-
+        <Route index element={<Messages />} />  {/* Fixed: Add index route */}
         <Route path="profile" element={<ProfilePage />} />
       </Route>
     </Routes>
