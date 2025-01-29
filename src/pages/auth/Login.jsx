@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../components/Logo";
 import LoginIlustration from "../../images/chat-login.svg";
 import { EnvelopeSimple, Lock } from "@phosphor-icons/react";
 
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <div className="border border-stroke bg-white shadow-default dark:bg-boxdark h-screen">
       <div className="flex flex-wrap items-center h-full">
@@ -80,12 +81,20 @@ const Login = () => {
               {/* login input button */}
               <div className="mb-5">
                 <input
+                  onClick={() => {
+                    navigate("/dashboard");
+                  }}
                   type="submit"
                   value="Sign In"
                   className="w-full cursor-pointer border border-primary bg-primary p-3 rounded-lg text-white transition hover:bg-opacity-90"
                 />
               </div>
-              <button className="flex w-full  items-center justify-center gap-3.5 border border-stroke bg-gray p-3 rounded-lg hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+              <button
+                onClick={() => {
+                  navigate("/dashboard");
+                }}
+                className="flex w-full  items-center justify-center gap-3.5 border border-stroke bg-gray p-3 rounded-lg hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50"
+              >
                 <span>
                   <svg
                     width="20"
@@ -125,7 +134,10 @@ const Login = () => {
               <div className="mt-6 text-center">
                 <p>
                   {`Dont' have any account?`}
-                  <Link to="/auth/signup" className="text-primary dark:text-white ">
+                  <Link
+                    to="/auth/signup"
+                    className="text-primary dark:text-white "
+                  >
                     Sign up
                   </Link>
                 </p>

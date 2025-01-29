@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../components/Logo";
 import SignupIlustration from "../../images/chat-signup.svg";
 import { EnvelopeSimple, Lock, User } from "@phosphor-icons/react";
 
 const Signin = () => {
+  const navigate = useNavigate();
   return (
     <div className="border border-stroke bg-white shadow-default dark:bg-boxdark h-screen">
       <div className="flex flex-wrap items-center h-full">
@@ -119,6 +120,9 @@ const Signin = () => {
               {/* singup input button */}
               <div className="mb-3">
                 <input
+                  onClick={() => {
+                    navigate("/auth/verify");
+                  }}
                   type="submit"
                   value="Create account"
                   className="w-full cursor-pointer border border-primary bg-primary p-2.5 rounded-lg text-white transition hover:bg-opacity-90"
@@ -126,7 +130,12 @@ const Signin = () => {
               </div>
 
               {/* signup with google */}
-              <button className="flex w-full  items-center justify-center gap-3.5 border border-stroke bg-gray p-2 rounded-lg hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+              <button
+                onClick={() => {
+                  navigate("/dashboard");
+                }}
+                className="flex w-full  items-center justify-center gap-3.5 border border-stroke bg-gray p-2 rounded-lg hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50"
+              >
                 <span>
                   <svg
                     width="20"
