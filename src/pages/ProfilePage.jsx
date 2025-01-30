@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import UpdatePasswordForm from "../section/Profile/UpdatePasswordForm";
+import ProfileForm from "../section/Profile/ProfileForm";
 
 const ProfilePage = () => {
   const [openTab, setOpenTab] = useState(1);
@@ -37,12 +39,12 @@ const ProfilePage = () => {
       <div>
         <div className={`${openTab === 1 ? "block" : "hidden"}`}>
           {/* Profile Form */}
-         
+          <ProfileForm />
         </div>
 
         <div className={`${openTab === 2 ? "block" : "hidden"}`}>
           {/* Update Password */}
-          Update Form
+          <UpdatePasswordForm />
         </div>
       </div>
     </div>
