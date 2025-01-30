@@ -14,7 +14,7 @@ const Signin = () => {
               <Logo />
             </Link>
 
-            <p className="2xl:px-20 text=sm">
+            <p className="2xl:px-20 text-sm">
               Join Chati & experience the modern way to connect with people
             </p>
 
@@ -28,7 +28,7 @@ const Signin = () => {
           </div>
         </div>
 
-        <div className="w-full  border-stroke dark:border-strokedark   xl:w-1/2 xl:border-l-2 xl:border=1/2 xl:px-45">
+        <div className="w-full  border-stroke dark:border-strokedark   xl:w-1/2 xl:border-l-2 xl:border-1/2 xl:px-45">
           <div className="w-full p-4 sm:px-45 lg:px-45  xl:px-1">
             <span className="mb-1 block font-medium">Start for free</span>
 
@@ -68,7 +68,7 @@ const Signin = () => {
                 <div className="relative">
                   <input
                     type="text"
-                    placeholder="Enter your full name"
+                    placeholder="Enter your UserName"
                     className="w-full rounded-lg border border-stroke bg-transparent py-3 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input"
                   />
                   <span className="absolute right-4 top-3 ">
@@ -179,7 +179,7 @@ const Signin = () => {
                     to="/auth/login"
                     className="text-primary dark:text-white"
                   >
-                    Login up
+                    Login 
                   </Link>
                 </p>
               </div>
